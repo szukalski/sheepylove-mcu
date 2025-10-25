@@ -1,6 +1,6 @@
 # sheepylove-mcu
 
-Code for a MCU based relay (ATtiny412) and latching relay (5V). Things can always be improved but sharing is learning, enjoy.
+Code for a MCU based relay (ATtiny412) and latching relay (5V). Things can always be improved but sharing is freedom, enjoy.
 
 * Config: platformio.ini
 * Code: src/main.cpp
