@@ -23,7 +23,6 @@ struct Channel {   // Structure declaration
   int pinRelayPlus;
   int pinLed;
   bool state;
-  long last_interrupt_time;
 };
 
 struct Channel channel1 = {
@@ -32,7 +31,6 @@ struct Channel channel1 = {
   .pinRelayPlus = CH1_PIN_RELAY_PLUS,
   .pinLed = CH1_LED,
   .state = LOW,    // start with relay off
-  .last_interrupt_time = 0
 };
 
 struct Channel channel2 = {
@@ -41,7 +39,6 @@ struct Channel channel2 = {
   .pinRelayPlus = CH2_PIN_RELAY_PLUS,
   .pinLed = CH2_LED,
   .state = LOW,    // start with relay off
-  .last_interrupt_time = 0
 };
 
 void setLed(Channel channel) {
@@ -76,6 +73,7 @@ void setChannel(Channel channel) {
   setLed(channel);
 }
 
+// Each switch needs a dedicated interrupt
 void interruptSwitch1() {
   static unsigned long last_interrupt_time = 0;
   unsigned long interrupt_time = millis();
